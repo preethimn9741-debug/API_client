@@ -58,7 +58,6 @@ project/
 ## ⚙️ Installation Steps
 
 1. Clone the repository:
-```bash
 git clone <repository-url>
 
 cd project
