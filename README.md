@@ -43,9 +43,10 @@ It is designed to practice:
 
 ---
 
-## 📂 Project Files
+📂 Project Files
 project/
 │
+
 ├── client.py # Main API client script
 
 ├── config.json # (Optional) API base URL configuration
