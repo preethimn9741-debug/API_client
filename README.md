@@ -1,55 +1,53 @@
-# API Client
+# Currency API Client
 
 ## 📌 Project Description
-**API Client** is a Python-based command-line tool that interacts with REST APIs.
-It sends HTTP requests (GET, POST, PUT, DELETE), handles responses, and displays or saves results in a structured format.
+This project is a **command-line API client** written in Python that interacts with a public currency exchange rate API.
+It allows users to:
+- Fetch latest currency exchange rates
+- Convert an amount from one currency to another
 
-This project is created as a **learning and practice project** to understand how client-side applications communicate with APIs.
+The project uses a simple CLI interface and demonstrates how to consume REST APIs using Python.
 
 ---
 
 ## 🎯 Purpose of the Project
 This project is:
-- ✅ A learning exercise  
-- ✅ A reusable API client utility  
-- ❌ Not a production-ready client library  
+- ✅ A learning exercise
+- ✅ A simple API client
+- ❌ Not a production-ready financial tool
 
-It helps in understanding API consumption, request handling, and response processing.
-
----
-
-## ✨ Features
-- Send HTTP requests to REST APIs
-- Supports GET, POST, PUT, and DELETE methods
-- Handles JSON request and response data
-- Displays API responses in readable format
-- Supports command-line execution
-- Basic error handling for failed requests
+It is designed to practice:
+- API requests
+- Command-line argument handling
+- Basic error handling
 
 ---
 
 ## 🛠 Tech Stack
-- **Language:** Python  
-- **Library:** requests  
-- **Execution:** Command Line (CLI)  
-- **Data Format:** JSON  
+- **Language:** Python
+- **Library:** requests
+- **Execution:** Command Line (CLI)
+- **Data Format:** JSON
+- **External API:** Exchange Rates API
 
 ---
 
-## 🏗 Architecture Overview
-- The client sends HTTP requests using the `requests` library
-- API responses are parsed as JSON
-- Errors such as invalid URLs or failed requests are handled gracefully
-- Output can be printed to the console or saved for later use
+## 🏗 How the Code Works
+- The script reads an optional `config.json` file to get the API base URL
+- If `config.json` is not present, a default API URL is used
+- API requests are made using the `requests` library
+- Responses are parsed as JSON
+- Errors are handled using try–except blocks
+- Command-line arguments determine the action to perform
 
 ---
 
-## 📂 Project Structure
-api_client/
+## 📂 Project Files
+project/
 │
-├── api_client.py # Main API client script
-├── requirements.txt # Python dependencies
-├── README.md # Project documentation\
+├── client.py # Main API client script
+├── config.json # (Optional) API base URL configuration
+├── README.md # Project documentation
 
 ---
 
@@ -58,20 +56,48 @@ api_client/
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd api_client
-1 (Optional) Create a virtual environment:
-         python -m venv venv
-2 Activate the virtual environment:
-         venv\Scripts\activate
-3 Install dependencies:
-         pip install -r requirements.txt
-4 Run the API Client
-         python api_client.py
+cd project
+2. (Optional) Create a virtual environment:
+   python -m venv venv
+3. Activate the virtual environment:
+   venv\Scripts\activate
+4. Install required dependency:
+   pip install requests
+
+▶️ Command-Line Usage
+The script supports two commands: rates and convert.
+
+🔹Fetch Currency Rates
+ python client.py rates --from USD
+
+🔹 Convert Currency
+ python client.py convert --from USD --to INR --amount 10
+
 Example Output
+Rates Output
 {
-  "userId": 1,
-  "id": 1,
-  "title": "Sample title",
-  "body": "Sample body"
+  "base_code": "USD",
+  "rates": {
+    "INR": 83.2,
+    "EUR": 0.92
+  }
 }
 
+Convert Output
+10 USD = 832.0 INR
+
+🧪 Error Handling
+Handles network and API errors gracefully
+Prints meaningful error messages for:
+Invalid currencies
+Missing arguments
+API request failures
+
+📌 Limitations
+No automated tests included
+No authentication handling
+Uses a public API without rate-limit handling
+
+📌 Conclusion
+This project demonstrates how to build a simple CLI-based API client in Python.
+It is suitable for learning API consumption, CLI argument parsing, and basic error handling.
