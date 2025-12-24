@@ -5,7 +5,6 @@ This project is a **command-line API client** written in Python that interacts w
 It allows users to:
 
 - Fetch latest currency exchange rates
-- 
 - Convert an amount from one currency to another
 
 The project uses a simple CLI interface and demonstrates how to consume REST APIs using Python.
